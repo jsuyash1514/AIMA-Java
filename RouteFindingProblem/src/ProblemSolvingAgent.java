@@ -1,12 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class ProblemSolvingAgent {
-	
+	public  static  AdjacencyMatrix adjacencyMatrix;
 	
 	public static void main(String[] args){
-		initiate("Oradea","Eforie");
+		adjacencyMatrix.setMap();
+		initiate("Sibiu","Neamt");
 		
 	}
 	
@@ -54,105 +54,15 @@ public class ProblemSolvingAgent {
 	private static void expand(Node node, Queue frontier, Queue explored) {
 		System.out.println("Expanding " + node.getNode() + " into child nodes...");
 		Queue queue = new Queue();
-		if (node.getNode() == "Arad"){
-			Node node1 = new Node(); node1.setNode("Zerind"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Timisoara"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Sibiu"); node3.setParent(node); queue.insert(node3);
-		}
-		
-		else if (node.getNode() == "Zerind"){
-			Node node1 = new Node(); node1.setNode("Oradea"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Arad"); node2.setParent(node); queue.insert(node2);
-		}
-		
-		else if (node.getNode() == "Sibiu"){
-			Node node1 = new Node(); node1.setNode("Arad"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Fagaras"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Rimnicu Vilcea"); node3.setParent(node); queue.insert(node3);
-			Node node4 = new Node(); node4.setNode("Oradea"); node4.setParent(node); queue.insert(node4);
-		}
-		else if (node.getNode() == "Oradea"){
-			Node node1 = new Node(); node1.setNode("Zerind"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Sibiu"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Timisoara"){
-			Node node1 = new Node(); node1.setNode("Arad"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Lugoj"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Lugoj"){
-			Node node1 = new Node(); node1.setNode("Timisoara"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Mehadia"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Mehadia"){
-			Node node1 = new Node(); node1.setNode("Lugoj"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Drobeta"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Drobeta"){
-			Node node1 = new Node(); node1.setNode("Mehadia"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Craiova"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Fagaras"){
-			Node node1 = new Node(); node1.setNode("Sibiu"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Bucharest"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Iasi"){
-			Node node1 = new Node(); node1.setNode("Neamt"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Vaslui"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Vaslui"){
-			Node node1 = new Node(); node1.setNode("Iasi"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Urziceni"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Hirsova"){
-			Node node1 = new Node(); node1.setNode("Urziceni"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Eforie"); node2.setParent(node); queue.insert(node2);
-		}
-		else if (node.getNode() == "Rimnicu Vilcea"){
-			Node node1 = new Node(); node1.setNode("Sibiu"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Craiova"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Pitesti"); node3.setParent(node); queue.insert(node3);
-		}
-		else if (node.getNode() == "Pitesti"){
-			Node node1 = new Node(); node1.setNode("Bucharest"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Craiova"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Rimnicu Vilcea"); node3.setParent(node); queue.insert(node3);
-		}
-		else if (node.getNode() == "Craiova"){
-			Node node1 = new Node(); node1.setNode("Pitesti"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Drobeta"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Rimnicu Vilcea"); node3.setParent(node); queue.insert(node3);
-		}
-		else if (node.getNode() == "Urziceni"){
-			Node node1 = new Node(); node1.setNode("Bucharest"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Hirsova"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Vaslui"); node3.setParent(node); queue.insert(node3);
-		}
-		else if (node.getNode() == "Neamt") {
-			Node node1 = new Node(); node1.setNode("Iasi"); node1.setParent(node); queue.insert(node1);
-		}
-		else if (node.getNode() == "Eforie") {
-			Node node1 = new Node(); node1.setNode("Hirsova"); node1.setParent(node); queue.insert(node1);
-		}
-		else if (node.getNode() == "Giurgiu") {
-			Node node1 = new Node(); node1.setNode("Bucharest"); node1.setParent(node); queue.insert(node1);
-		}
-		else if (node.getNode() == "Bucharest"){
-			Node node1 = new Node(); node1.setNode("Pitesti"); node1.setParent(node); queue.insert(node1);
-			Node node2 = new Node(); node2.setNode("Fagaras"); node2.setParent(node); queue.insert(node2);
-			Node node3 = new Node(); node3.setNode("Urziceni"); node3.setParent(node); queue.insert(node3);
-			Node node4 = new Node(); node4.setNode("Giurgiu"); node4.setParent(node); queue.insert(node4);
-		}
-		else{
-			System.out.println("ERROR 404: Not Found!!");
-			System.exit(0);
-		}
-		
+		AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix();
+		queue = adjacencyMatrix.getQueue(node);
 		while (!queue.isEmpty()){
 			Node check = new Node();
 			check = queue.pop();
 			if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
+				check.setParent(node);
 				frontier.insert(check);
-				System.out.println("Inserted " + check.getNode() + " in frontier");
+				System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
 			}
 		}
 	}
@@ -261,8 +171,90 @@ class Queue {
 		}
 		return  list_String.contains(s);
 	}
-	
 }
+
+
+class AdjacencyMatrix{
+	public static int[][] matrix;
+	public static HashMap<Integer, Node> hashMap ;
+	
+	public static void setMap(){
+		hashMap = new HashMap<>();
+		
+		
+		Node node = new Node(); node.setNode("Oradea"); hashMap.put(0, node);
+		Node node1 = new Node(); node1.setNode("Zerind"); hashMap.put(1, node1);
+		Node node2 = new Node(); node2.setNode("Arad"); hashMap.put(2, node2);
+		Node node3 = new Node(); node3.setNode("Timisoara"); hashMap.put(3, node3);
+		Node node4 = new Node(); node4.setNode("Lugoj"); hashMap.put(4, node4);
+		Node node5 = new Node(); node5.setNode("Mehadia"); hashMap.put(5, node5);
+		Node node6 = new Node(); node6.setNode("Drobeta"); hashMap.put(6, node6);
+		Node node7 = new Node(); node7.setNode("Craiova"); hashMap.put(7, node7);
+		Node node8 = new Node(); node8.setNode("Sibiu"); hashMap.put(8, node8);
+		Node node9 = new Node(); node9.setNode("Rimnicu Vilcea"); hashMap.put(9, node9);
+		Node node10 = new Node(); node10.setNode("Pitesti"); hashMap.put(10, node10);
+		Node node11 = new Node(); node11.setNode("Fagaras"); hashMap.put(11, node11);
+		Node node12 = new Node(); node12.setNode("Bucharest"); hashMap.put(12, node12);
+		Node node13 = new Node(); node13.setNode("Giurgiu"); hashMap.put(13, node13);
+		Node node14 = new Node(); node14.setNode("Urziceni"); hashMap.put(14, node14);
+		Node node15 = new Node(); node15.setNode("Vaslui"); hashMap.put(15, node15);
+		Node node16= new Node(); node16.setNode("Iasi"); hashMap.put(16, node16);
+		Node node17 = new Node(); node17.setNode("Neamt"); hashMap.put(17, node17);
+		Node node18 = new Node(); node18.setNode("Hirsova"); hashMap.put(18, node18);
+		Node node19 = new Node(); node19.setNode("Eforie"); hashMap.put(19, node19);
+		
+		
+		
+		matrix = new int[20][20];
+		matrix[0][1] = 1; matrix[0][8] = 1;
+		matrix[1][0] = 1; matrix[1][2] = 1;
+		matrix[2][1] = 1; matrix[2][3] = 1; matrix[2][8] = 1;
+		matrix[3][2] = 1; matrix[3][4] = 1;
+		matrix[4][3] = 1; matrix[4][5] = 1;
+		matrix[5][4] = 1; matrix[5][6] = 1;
+		matrix[6][5] = 1; matrix[6][7] = 1;
+		matrix[7][6] = 1; matrix[7][9] = 1; matrix[7][10] = 1;
+		matrix[8][0] = 1; matrix[8][2] = 1; matrix[8][9] = 1; matrix[8][11] = 1;
+		matrix[9][7] = 1; matrix[9][8] = 1; matrix[9][10] = 1;
+		matrix[10][7] = 1; matrix[10][9] = 1; matrix[10][12] = 1;
+		matrix[11][8] = 1; matrix[11][12] = 1;
+		matrix[12][10] = 1; matrix[12][11] = 1; matrix[12][13] = 1; matrix[12][14] = 1;
+		matrix[13][12] = 1;
+		matrix[14][12] = 1; matrix[14][15] = 1; matrix[14][18] = 1;
+		matrix[15][14] = 1; matrix[15][16] = 1;
+		matrix[16][15] = 1; matrix[16][17] = 1;
+		matrix[17][16] = 1;
+		matrix[18][14] = 1; matrix[18][19] = 1;
+		matrix[19][18] = 1;
+		
+		
+	}
+	public Queue getQueue(Node node){
+		Queue queue = new Queue();
+		int i=0;
+		int key = -1;
+		while (i<hashMap.size()){
+			if(node.getNode() == hashMap.get(i).getNode()){
+				key = i;
+				break;
+			}
+			i++;
+		}
+		if (key == -1){
+			System.out.println(node.getNode() + " not found.");
+			System.exit(0);
+		}
+		for (int k=0; k<20; k++){
+			if (matrix[key][k] == 1){
+				Node node1 = new Node();
+				node1 = hashMap.get(k);
+				queue.insert(node1);
+			}
+		}
+		return queue;
+	}
+}
+
 
 
 
