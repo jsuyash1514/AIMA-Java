@@ -1,5 +1,5 @@
 import java.util.*;
-
+/* Breadth-first Graph Search Algorithm on Romania map(Figure 3.2) */
 
 public class ProblemSolvingAgent {
 	public  static  AdjacencyMatrix adjacencyMatrix;
