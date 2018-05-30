@@ -41,10 +41,7 @@ public class ProblemSolvingAgent {
 			leafNode = frontier.pop();
 			System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...");
 			
-			if (leafNode.getNode().equals(goal.getNode())){
-				printSolution(leafNode);
-				break;
-			}
+			
 			
 			explored.insert(leafNode);
 			System.out.println("Inserted " + leafNode.getNode() + " in explored");
@@ -63,6 +60,10 @@ public class ProblemSolvingAgent {
 			check = queue.pop();
 			if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
 				check.setParent(node);
+				if (check.getNode().equals(goal.getNode())){
+					printSolution(check);
+					break;
+				}
 				frontier.insert(check);
 				System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
 			}
@@ -85,6 +86,7 @@ public class ProblemSolvingAgent {
 			}
 			solution.remove(i-1);
 		}
+		System.exit(0);
 		
 	}
 	
