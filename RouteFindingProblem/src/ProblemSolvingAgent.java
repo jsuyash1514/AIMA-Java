@@ -1,7 +1,6 @@
 import java.util.*;
 
-// Graph Search Algorithm
-//Breadth-First search (Uninformed Search Strategies)
+// Graph Search Algorithm (Uninformed Search Strategies)
 
 public class ProblemSolvingAgent {
 	public  static  AdjacencyMatrix adjacencyMatrix;
@@ -11,7 +10,7 @@ public class ProblemSolvingAgent {
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Sibiu","Neamt");
+		initiate("Sibiu","Bucharest");
 		
 	}
 	
@@ -40,17 +39,18 @@ public class ProblemSolvingAgent {
 		while (true){
 			leafNode = frontier.pop();
 			System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...");
-			
-			
-			
+//			if (leafNode.getNode().equals(goal.getNode())){
+//				printSolution(leafNode);						<------- This is Graph Search Algorithm as goal test is applied to leafNode.
+//				break;
+//			}
 			explored.insert(leafNode);
 			System.out.println("Inserted " + leafNode.getNode() + " in explored");
 			
-			expand(leafNode, frontier, explored);
+			expand_By_BreadthFirstSearch(leafNode, frontier, explored);
 		}
 	}
 	
-	private static void expand(Node node, Queue frontier, Queue explored) {
+	private static void expand_By_BreadthFirstSearch(Node node, Queue frontier, Queue explored) {
 		System.out.println("Expanding " + node.getNode() + " into child nodes...");
 		Queue queue = new Queue();
 		AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix();
@@ -60,20 +60,20 @@ public class ProblemSolvingAgent {
 			check = queue.pop();
 			if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
 				check.setParent(node);
-				if (check.getNode().equals(goal.getNode())){
-					printSolution(check);
-					break;
-				}
+				if (check.getNode().equals(goal.getNode())){		/*This is a major difference between Graph Search and Breadth First Search */
+					printSolution(check,"by Breadth First Search"); /*In Graph Search: Goal test is applied to leaf-node*/
+					break;												  /*In Breadth First search: Goal test is applied to child-node*/
+				}														  /*Thus, here this algorithm is Breadth First search.*/
 				frontier.insert(check);
 				System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
 			}
 		}
 	}
 	
-	private static void printSolution(Node node) {
+	private static void printSolution(Node node, String string) {
 		ArrayList<String> solution = new ArrayList<>();
 		solution.add(node.getNode());
-		System.out.println("\n************************************************\nPrinting Solution\n");
+		System.out.println("\n************************************************\nSolution " + string + "\n");
 		while (node.getParent() != null){
 			solution.add(node.getParent().getNode());
 			node = node.getParent();
