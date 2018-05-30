@@ -1,8 +1,13 @@
 import java.util.*;
-/* Breadth-first Graph Search Algorithm on Romania map(Figure 3.2) */
+
+// Graph Search Algorithm
+//Breadth-First search (Uninformed Search Strategies)
 
 public class ProblemSolvingAgent {
 	public  static  AdjacencyMatrix adjacencyMatrix;
+	public static  Node state;
+	public static  Node goal;
+	public static Node leafNode;
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
@@ -16,38 +21,35 @@ public class ProblemSolvingAgent {
 		Node currentState = new Node();
 		currentState.setNode(mCurrent);
 		currentState.setParent(null);
-		State state = new State();
-		state.setState(currentState);
+		state = currentState;
 		
 		Node finalState = new Node();
 		finalState.setNode(mFinal);
-		Goal goal = new Goal();
-		goal.setGoal(finalState);
+		goal = finalState;
 		
 		GRAPH_SEARCH(state, goal);
 	}
 	
-	public static void GRAPH_SEARCH(State state, Goal goal){
+	public static void GRAPH_SEARCH(Node state, Node goal){
 		Queue frontier = new Queue();
-		frontier.insert(state.getState());
-		System.out.println("Inserted " + state.getState().getNode() + " in frontier");
+		frontier.insert(state);
+		System.out.println("Inserted " + state.getNode() + " in frontier");
 		
 		Queue explored = new Queue();
 		
 		while (true){
-			LeafNode leafNode = new LeafNode();
-			leafNode.setLeaf(frontier.pop());
-			System.out.println(leafNode.getLeaf().getNode() + " removed from frontier and set as leaf node...");
+			leafNode = frontier.pop();
+			System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...");
 			
-			if (leafNode.getLeaf().getNode().equals(goal.getGoal().getNode())){
-				printSolution(leafNode.getLeaf());
+			if (leafNode.getNode().equals(goal.getNode())){
+				printSolution(leafNode);
 				break;
 			}
 			
-			explored.insert(leafNode.getLeaf());
-			System.out.println("Inserted " + leafNode.getLeaf().getNode() + " in explored");
+			explored.insert(leafNode);
+			System.out.println("Inserted " + leafNode.getNode() + " in explored");
 			
-			expand(leafNode.getLeaf(), frontier, explored);
+			expand(leafNode, frontier, explored);
 		}
 	}
 	
@@ -88,43 +90,6 @@ public class ProblemSolvingAgent {
 	
 	
 }
-
-class Goal {
-	Node goal;
-	
-	public Node getGoal() {
-		return goal;
-	}
-	
-	public void setGoal(Node goal) {
-		this.goal = goal;
-	}
-}
-
-class State {
-	Node state;
-	
-	public Node getState() {
-		return state;
-	}
-	
-	public void setState(Node state) {
-		this.state = state;
-	}
-}
-
-class LeafNode {
-	Node leaf;
-	
-	public Node getLeaf() {
-		return leaf;
-	}
-	
-	public void setLeaf(Node leaf) {
-		this.leaf = leaf;
-	}
-}
-
 class Node {
 	String node;
 	Node parent;
@@ -144,7 +109,6 @@ class Node {
 	public void setParent(Node parent) {
 		this.parent = parent;
 	}
-	
 }
 
 
