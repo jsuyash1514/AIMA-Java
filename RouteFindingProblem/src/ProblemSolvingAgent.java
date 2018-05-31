@@ -3,14 +3,15 @@ import java.util.*;
 // Graph Search Algorithm (Uninformed Search Strategies)
 
 public class ProblemSolvingAgent {
-	public  static  AdjacencyMatrix adjacencyMatrix;
+	public  static  AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix();
 	public static  Node state;
 	public static  Node goal;
 	public static Node leafNode;
 	
+	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Sibiu","Bucharest");
+		initiate("Arad","Bucharest");
 		
 	}
 	
@@ -26,61 +27,115 @@ public class ProblemSolvingAgent {
 		finalState.setNode(mFinal);
 		goal = finalState;
 		
-		GRAPH_SEARCH(state, goal);
+//		BreadthFirstSearch.GRAPH_SEARCH(state, goal);   	/*Uncomment this line to run Breadth-First search.*/
+//		UniformCostSearch.GRAPH_SEARCH(state, goal);		/*Uncomment this line to run Uniform Cost search.*/
 	}
 	
-	public static void GRAPH_SEARCH(Node state, Node goal){
-		Queue frontier = new Queue();
-		frontier.insert(state);
-		System.out.println("Inserted " + state.getNode() + " in frontier");
-		
-		Queue explored = new Queue();
-		
-		while (true){
-			leafNode = frontier.pop();
-			System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...");
-//			if (leafNode.getNode().equals(goal.getNode())){
-//				printSolution(leafNode);						<------- This is Graph Search Algorithm as goal test is applied to leafNode.
-//				break;
-//			}
-			explored.insert(leafNode);
-			System.out.println("Inserted " + leafNode.getNode() + " in explored");
+	
+	static class BreadthFirstSearch {
+		public static void GRAPH_SEARCH(Node state, Node goal){
+			Queue frontier = new Queue();
+			frontier.insert(state);
+			System.out.println("Inserted " + state.getNode() + " in frontier");
 			
-			expand_By_BreadthFirstSearch(leafNode, frontier, explored);
+			Queue explored = new Queue();
+			
+			while (true){
+				leafNode = frontier.pop();
+				System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...");
+				explored.insert(leafNode);
+				System.out.println("Inserted " + leafNode.getNode() + " in explored");
+
+				expand_By_BreadthFirstSearch(leafNode, frontier, explored);
+			}
 		}
-	}
-	
-	private static void expand_By_BreadthFirstSearch(Node node, Queue frontier, Queue explored) {
-		System.out.println("Expanding " + node.getNode() + " into child nodes...");
-		Queue queue = new Queue();
-		AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix();
-		queue = adjacencyMatrix.getQueue(node);
-		while (!queue.isEmpty()){
-			Node check = new Node();
-			check = queue.pop();
-			if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
-				check.setParent(node);
-				if (check.getNode().equals(goal.getNode())){		/*This is a major difference between Graph Search and Breadth First Search */
-					printSolution(check,"by Breadth First Search"); /*In Graph Search: Goal test is applied to leaf-node*/
-					break;												  /*In Breadth First search: Goal test is applied to child-node*/
-				}														  /*Thus, here this algorithm is Breadth First search.*/
-				frontier.insert(check);
-				System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
+		
+		private static void expand_By_BreadthFirstSearch(Node node, Queue frontier, Queue explored) {
+			System.out.println("Expanding " + node.getNode() + " into child nodes...");
+			Queue queue = new Queue();
+			queue = adjacencyMatrix.getQueue(node);
+			while (!queue.isEmpty()){
+				Node check = new Node();
+				check = queue.pop();
+				if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
+					check.setParent(node);
+					if (check.getNode().equals(goal.getNode())){
+						printSolution(check,"by Breadth First Search");
+						break;
+					}
+					frontier.insert(check);
+					System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
+				}
 			}
 		}
 	}
 	
+	
+	
+	static class UniformCostSearch {
+		public static void GRAPH_SEARCH(Node state, Node goal){
+			Queue frontier = new Queue();
+			frontier.insert(state);
+			System.out.println("Inserted " + state.getNode() + " in frontier");
+			
+			Queue explored = new Queue();
+			
+			while (true){
+				leafNode = frontier.popByPriority();
+				System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node...and total path cost is: " + leafNode.getPath_cost());
+				if (leafNode.getNode().equals(goal.getNode())){
+					printSolution(leafNode,"by Uniform Cost Search");
+					break;
+				}
+				explored.insert(leafNode);
+				System.out.println("Inserted " + leafNode.getNode() + " in explored");
+				
+				expand_By_UniformCostSearch(leafNode, frontier, explored);
+			}
+		}
+		
+		private static void expand_By_UniformCostSearch(Node node, Queue frontier, Queue explored) {
+			System.out.println("Expanding " + node.getNode() + " into child nodes...");
+			Queue queue = new Queue();
+			queue = adjacencyMatrix.getQueue(node);
+			while (!queue.isEmpty()){
+				Node check = new Node();
+				check = queue.pop();
+				int cost = check.getPath_cost();
+				if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
+					check.setPath_cost(node.getPath_cost() + adjacencyMatrix.getStepCost(node, check));
+					check.setParent(node);
+					frontier.insert(check);
+					System.out.println("Inserted " + check.getNode() + " in frontier with path cost:  " + check.getPath_cost() +  " and its parent node is " + check.getParent().getNode());
+				}
+				
+				else if (frontier.containsInString(check.getNode())){
+					check.setPath_cost(node.getPath_cost() + adjacencyMatrix.getStepCost(node, check));
+					if (cost >= check.getPath_cost()){
+						System.out.println("Updated path cost of " + check.getNode() + " from " + cost + " to " + check.getPath_cost());
+						check.setParent(node);
+					}
+					else {
+						check.setPath_cost(cost);
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
 	private static void printSolution(Node node, String string) {
-		ArrayList<String> solution = new ArrayList<>();
-		solution.add(node.getNode());
+		ArrayList<Node> solution = new ArrayList<>();
+		solution.add(node);
 		System.out.println("\n************************************************\nSolution " + string + "\n");
 		while (node.getParent() != null){
-			solution.add(node.getParent().getNode());
+			solution.add(node.getParent());
 			node = node.getParent();
 		}
 		while (solution.size() != 0){
 			int i = solution.size();
-			System.out.print(solution.get(i-1) );
+			System.out.print(solution.get(i-1).getNode() + "(" + solution.get(i-1).getPath_cost() +  ")" );
 			if (solution.size() != 1){
 				System.out.print("	---->	");
 			}
@@ -95,24 +150,26 @@ public class ProblemSolvingAgent {
 class Node {
 	String node;
 	Node parent;
-	
+	int path_cost = 0;
 	public String getNode() {
 		return node;
 	}
-	
 	public void setNode(String node) {
 		this.node = node;
 	}
-	
 	public Node getParent() {
 		return parent;
 	}
-	
 	public void setParent(Node parent) {
 		this.parent = parent;
 	}
+	public int getPath_cost() {
+		return path_cost;
+	}
+	public void setPath_cost(int path_cost) {
+		this.path_cost = path_cost;
+	}
 }
-
 
 class Queue {
 	List<Node> list = new ArrayList();
@@ -123,6 +180,22 @@ class Queue {
 	public Node pop(){
 		Node node = list.get(0);
 		list.remove(0);
+		return node;
+	}
+	
+	public Node popByPriority(){
+		int min=list.get(0).getPath_cost();
+		int index=0;
+		for (int i=0; i<list.size(); i++){
+			System.out.print(list.get(i).getNode() + ": " + list.get(i).getPath_cost() + "  ||  ");
+			if(list.get(i).getPath_cost() <= min){
+				min = list.get(i).getPath_cost();
+				index = i;
+			}
+		}
+		System.out.println();
+		Node node = list.get(index);
+		list.remove(index);
 		return node;
 	}
 	
@@ -143,7 +216,6 @@ class Queue {
 class AdjacencyMatrix{
 	public static int[][] matrix;
 	public static HashMap<Integer, Node> hashMap ;
-	
 	public static void setMap(){
 		hashMap = new HashMap<>();
 		
@@ -172,26 +244,26 @@ class AdjacencyMatrix{
 		
 		
 		matrix = new int[20][20];
-		matrix[0][1] = 1; matrix[0][8] = 1;
-		matrix[1][0] = 1; matrix[1][2] = 1;
-		matrix[2][1] = 1; matrix[2][3] = 1; matrix[2][8] = 1;
-		matrix[3][2] = 1; matrix[3][4] = 1;
-		matrix[4][3] = 1; matrix[4][5] = 1;
-		matrix[5][4] = 1; matrix[5][6] = 1;
-		matrix[6][5] = 1; matrix[6][7] = 1;
-		matrix[7][6] = 1; matrix[7][9] = 1; matrix[7][10] = 1;
-		matrix[8][0] = 1; matrix[8][2] = 1; matrix[8][9] = 1; matrix[8][11] = 1;
-		matrix[9][7] = 1; matrix[9][8] = 1; matrix[9][10] = 1;
-		matrix[10][7] = 1; matrix[10][9] = 1; matrix[10][12] = 1;
-		matrix[11][8] = 1; matrix[11][12] = 1;
-		matrix[12][10] = 1; matrix[12][11] = 1; matrix[12][13] = 1; matrix[12][14] = 1;
-		matrix[13][12] = 1;
-		matrix[14][12] = 1; matrix[14][15] = 1; matrix[14][18] = 1;
-		matrix[15][14] = 1; matrix[15][16] = 1;
-		matrix[16][15] = 1; matrix[16][17] = 1;
-		matrix[17][16] = 1;
-		matrix[18][14] = 1; matrix[18][19] = 1;
-		matrix[19][18] = 1;
+		matrix[0][1] = 71; matrix[0][8] = 151;
+		matrix[1][0] = 71; matrix[1][2] = 75;
+		matrix[2][1] = 75; matrix[2][3] = 118; matrix[2][8] = 140;
+		matrix[3][2] = 118; matrix[3][4] = 111;
+		matrix[4][3] = 111; matrix[4][5] = 70;
+		matrix[5][4] = 70; matrix[5][6] = 75;
+		matrix[6][5] = 75; matrix[6][7] = 120;
+		matrix[7][6] = 120; matrix[7][9] = 146; matrix[7][10] = 138;
+		matrix[8][0] = 151; matrix[8][2] = 140; matrix[8][9] = 80; matrix[8][11] = 99;
+		matrix[9][7] = 146; matrix[9][8] = 80; matrix[9][10] = 97;
+		matrix[10][7] = 138; matrix[10][9] = 97; matrix[10][12] = 101;
+		matrix[11][8] = 99; matrix[11][12] = 211;
+		matrix[12][10] = 101; matrix[12][11] = 211; matrix[12][13] = 90; matrix[12][14] = 85;
+		matrix[13][12] = 90;
+		matrix[14][12] = 85; matrix[14][15] = 142; matrix[14][18] = 98;
+		matrix[15][14] = 142; matrix[15][16] = 92;
+		matrix[16][15] = 92; matrix[16][17] = 87;
+		matrix[17][16] = 87;
+		matrix[18][14] = 98; matrix[18][19] = 86;
+		matrix[19][18] = 86;
 		
 		
 	}
@@ -211,7 +283,7 @@ class AdjacencyMatrix{
 			System.exit(0);
 		}
 		for (int k=0; k<20; k++){
-			if (matrix[key][k] == 1){
+			if (matrix[key][k] != 0){
 				Node node1 = new Node();
 				node1 = hashMap.get(k);
 				queue.insert(node1);
@@ -219,7 +291,27 @@ class AdjacencyMatrix{
 		}
 		return queue;
 	}
+	
+	public  int getStepCost(Node parent, Node child){
+		int index_parent = -1, index_child = -1;
+		int i =0;
+		while (i<hashMap.size()){
+			if(parent.getNode() == hashMap.get(i).getNode()){
+				index_parent = i;
+			}
+			else if (child.getNode() == hashMap.get(i).getNode()){
+				index_child = i;
+			}
+			i++;
+		}
+		return matrix[index_child][index_parent];
+	}
+	
+	
 }
+
+
+
 
 
 
