@@ -11,7 +11,7 @@ public class ProblemSolvingAgent {
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Eforie","Lugoj");
+		initiate("Timisoara","Neamt");
 		
 	}
 	
@@ -31,6 +31,7 @@ public class ProblemSolvingAgent {
 //		UniformCostSearch.GRAPH_SEARCH(state, goal);		/*Uncomment this line to run Uniform Cost search.*/
 //		DepthLimitedSearch.GRAPH_SEARCH(state, goal, 9);	/*Uncomment this line to run Depth Limited search.*/
 //		IterativeDeepeningSearch.GRAPH_SEARCH(state,goal );	/*Uncomment this line to run Iterative Deepening search.*/
+		BidirectionalSearch.GRAPH_SEARCH(state,goal);
 	}
 	
 	
@@ -180,6 +181,109 @@ public class ProblemSolvingAgent {
 	}
 	
 	
+	static class BidirectionalSearch{
+		public static Node leafNode1, leafNode2;
+		public static void GRAPH_SEARCH(Node state, Node goal){
+			Queue frontier1 = new Queue();
+			Queue frontier2 = new Queue();
+			frontier1.insert(state);
+			frontier2.insert(goal);
+			System.out.println("Inserted " + state.getNode() + " in frontier1\t||\tInserted " + goal.getNode() + " in frontier2");
+			
+			Queue explored1 = new Queue();
+			Queue explored2 = new Queue();
+			
+			while (true){
+				leafNode1 = frontier1.pop();
+				leafNode2 = frontier2.pop();
+				System.out.println(leafNode1.getNode() + " removed from frontier1 and set as leaf node\t||\t" + leafNode2.getNode() + " removed from frontier2 and set as leaf node");
+				explored1.insert(leafNode1);
+				explored2.insert(leafNode2);
+				System.out.println("Inserted " + leafNode1.getNode() + " in explored1\t||\tInserted " + leafNode2.getNode() + " in explored2");
+				
+				expand_By_BidirectionalSearch(leafNode1, leafNode2, frontier1 , frontier2, explored1, explored2);
+			}
+		}
+		
+		private static void expand_By_BidirectionalSearch(Node node1, Node node2, Queue frontier1, Queue frontier2, Queue explored1, Queue explored2) {
+			System.out.println("Expanding " + node1.getNode() + " into child nodes\t||\tExpanding " + node2.getNode() + " into child nodes");
+			Queue queue1 = new Queue();
+			Queue queue2 = new Queue();
+			queue1 = adjacencyMatrix.getQueue(node1);
+			queue2 = adjacencyMatrix.getQueue(node2);
+			Node other_parent = null;
+			Node intersecting_node = null;
+			while (!queue1.isEmpty()){
+				Node check1 = new Node();
+				check1 = queue1.pop();
+				if (!frontier1.containsInString(check1.getNode()) && !explored1.containsInString(check1.getNode())){
+					if (check1.getParent() != null){
+						other_parent = check1.getParent();
+						intersecting_node = check1;
+					}
+					check1.setParent(node1);
+					frontier1.insert(check1);
+					System.out.println("Inserted " + check1.getNode() + " in frontier1 and its parent node is " + check1.getParent().getNode());
+				}
+			}
+			System.out.print("Frontier1: ");
+			frontier1.printList();
+			while (!queue2.isEmpty()){
+				Node check2 = new Node();
+				check2 = queue2.pop();
+				if (!frontier2.containsInString(check2.getNode()) && !explored2.containsInString(check2.getNode())){
+					if (check2.getParent() != null){
+						other_parent = check2.getParent();
+						intersecting_node = check2;
+					}
+					check2.setParent(node2);
+					frontier2.insert(check2);
+					System.out.println("Inserted " + check2.getNode() + " in frontier2 and its parent node is " + check2.getParent().getNode());
+				}
+			}
+			System.out.print("Frontier2: ");
+			frontier2.printList();
+			if (other_parent != null ){
+				System.out.println("Intersecting node: " + intersecting_node.getNode() + " with parents " + intersecting_node.getParent().getNode() + " and " + other_parent.getNode());
+			}
+			if (frontier1.intersect(frontier2)){
+				System.out.println("INTERSECTION FOUND");
+				printBidirectionalSolution(intersecting_node, other_parent);
+				System.exit(0);
+			}
+		}
+		
+		private static void printBidirectionalSolution(Node intersecting_node, Node other_parent){
+			ArrayList<Node> solution1 = new ArrayList<>();
+			ArrayList<Node> solution2 = new ArrayList<>();
+			solution1.add(intersecting_node);
+			solution2.add(other_parent);
+			System.out.println("\n************************************************\nSolution by Bidirectional Search\n");
+			while (intersecting_node.getParent() != null){
+				solution1.add(intersecting_node.getParent());
+				intersecting_node = intersecting_node.getParent();
+			}
+			while (other_parent.getParent() != null){
+				solution2.add(other_parent.getParent());
+				other_parent = other_parent.getParent();
+			}
+			while (solution2.size() != 0){
+				int i = solution2.size();
+				System.out.print(solution2.get(i-1).getNode());
+				System.out.print("	---->	");
+				solution2.remove(i-1);
+			}
+			while (solution1.size() != 0){
+				System.out.print(solution1.get(0).getNode());
+				if (solution1.size() != 1) {
+					System.out.print("	<----	");
+				}
+				solution1.remove(0);
+			}
+		}
+	}
+	
+	
 	
 	private static void printSolution(Node node, String string) {
 		ArrayList<Node> solution = new ArrayList<>();
@@ -278,6 +382,15 @@ class Queue {
 			System.out.print(list.get(i).getNode() + "  ||  ");
 		}
 		System.out.println();
+	}
+	
+	public boolean intersect(Queue queue){
+		for (int i=0; i<list.size(); i++){
+			if (queue.containsInString(list.get(i).getNode())){
+				return true;
+			}
+		}
+		return false;
 	}
 }
 
