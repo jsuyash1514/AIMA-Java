@@ -11,7 +11,7 @@ public class ProblemSolvingAgent {
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Timisoara","Neamt");
+		initiate("Arad","Bucharest");
 		
 	}
 	
@@ -31,7 +31,7 @@ public class ProblemSolvingAgent {
 //		UniformCostSearch.GRAPH_SEARCH(state, goal);		/*Uncomment this line to run Uniform Cost search.*/
 //		DepthLimitedSearch.GRAPH_SEARCH(state, goal, 9);	/*Uncomment this line to run Depth Limited search.*/
 //		IterativeDeepeningSearch.GRAPH_SEARCH(state,goal );	/*Uncomment this line to run Iterative Deepening search.*/
-		BidirectionalSearch.GRAPH_SEARCH(state,goal);
+//		BidirectionalSearch.GRAPH_SEARCH(state,goal);		/*Uncomment this line to run Bidirectional Search*/
 	}
 	
 	
