@@ -25,8 +25,8 @@
       <file leaf-file-name="ProblemSolvingAgent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding>
                 <element signature="e#3157#3158#0" expanded="true" />
                 <element signature="e#3175#3176#0" expanded="true" />
@@ -338,8 +338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
           <folding>
             <element signature="e#3157#3158#0" expanded="true" />
             <element signature="e#3175#3176#0" expanded="true" />

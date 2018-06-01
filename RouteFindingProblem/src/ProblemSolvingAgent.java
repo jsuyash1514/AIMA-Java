@@ -30,6 +30,7 @@ public class ProblemSolvingAgent {
 //		BreadthFirstSearch.GRAPH_SEARCH(state, goal);   	/*Uncomment this line to run Breadth-First search.*/
 //		UniformCostSearch.GRAPH_SEARCH(state, goal);		/*Uncomment this line to run Uniform Cost search.*/
 //		DepthLimitedSearch.GRAPH_SEARCH(state, goal, 9);	/*Uncomment this line to run Depth Limited search.*/
+//		IterativeDeepeningSearch.GRAPH_SEARCH(state,goal );	/*Uncomment this line to run Iterative Deepening search.*/
 	}
 	
 	
@@ -164,6 +165,16 @@ public class ProblemSolvingAgent {
 				else {
 					System.out.println(check.getNode()  + " already in explored.");
 				}
+			}
+		}
+	}
+	
+	
+	static class IterativeDeepeningSearch{
+		public static void GRAPH_SEARCH(Node state, Node goal){
+			for (int limit = 0;;limit++){
+				System.out.println("***********************************\n\nLimit: " + limit + "\n\n");
+				DepthLimitedSearch.GRAPH_SEARCH(state, goal, limit);
 			}
 		}
 	}
