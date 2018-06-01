@@ -11,7 +11,7 @@ public class ProblemSolvingAgent {
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Arad","Bucharest");
+		initiate("Eforie","Lugoj");
 		
 	}
 	
@@ -29,6 +29,7 @@ public class ProblemSolvingAgent {
 		
 //		BreadthFirstSearch.GRAPH_SEARCH(state, goal);   	/*Uncomment this line to run Breadth-First search.*/
 //		UniformCostSearch.GRAPH_SEARCH(state, goal);		/*Uncomment this line to run Uniform Cost search.*/
+//		DepthLimitedSearch.GRAPH_SEARCH(state, goal, 9);	/*Uncomment this line to run Depth Limited search.*/
 	}
 	
 	
@@ -124,6 +125,50 @@ public class ProblemSolvingAgent {
 	}
 	
 	
+	static class DepthLimitedSearch{
+		public static void GRAPH_SEARCH(Node state, Node goal , int limit){
+			Queue frontier = new Queue();
+			frontier.insert(state);
+			System.out.println("Inserted " + state.getNode() + " in frontier");
+			Queue explored = new Queue();
+			
+			Recursive_DepthLimitedSearch(state, frontier, explored, limit);
+		
+		}
+		
+		private static void Recursive_DepthLimitedSearch(Node node, Queue frontier, Queue explored, int limit) {
+			leafNode = frontier.popLast();
+			System.out.println(leafNode.getNode() + " removed from frontier and set as leaf node..." );
+			if (leafNode.getNode().equals(goal.getNode())){
+				printSolution(leafNode,"by Depth Limited Search");
+			}
+			else if (limit == 0){
+				return;
+			}
+			explored.insert(leafNode);
+			System.out.println("Inserted " + leafNode.getNode() + " in explored");
+			System.out.println("Expanding " + node.getNode() + " into child nodes...");
+			Queue queue = new Queue();
+			queue = adjacencyMatrix.getQueue(node);
+			queue.printList();
+			while (!queue.isEmpty()){
+				Node check = new Node();
+				check = queue.popLast();
+				System.out.println(check.getNode() + " popped out of queue.");
+				if (!frontier.containsInString(check.getNode()) && !explored.containsInString(check.getNode())){
+					check.setParent(node);
+					frontier.insert(check);
+					System.out.println("Inserted " + check.getNode() + " in frontier and its parent node is " + check.getParent().getNode());
+					Recursive_DepthLimitedSearch(check, frontier, explored, limit-1);
+				}
+				else {
+					System.out.println(check.getNode()  + " already in explored.");
+				}
+			}
+		}
+	}
+	
+	
 	
 	private static void printSolution(Node node, String string) {
 		ArrayList<Node> solution = new ArrayList<>();
@@ -199,6 +244,12 @@ class Queue {
 		return node;
 	}
 	
+	public Node popLast(){
+		Node node = list.get(list.size() - 1);
+		list.remove(list.size()-1);
+		return node;
+	}
+	
 	public void insert(Node node){
 		list.add(node);
 	}
@@ -209,6 +260,13 @@ class Queue {
 			list_String.add(list.get(i).getNode());
 		}
 		return  list_String.contains(s);
+	}
+	
+	public void printList(){
+		for (int i=0; i<list.size(); i++){
+			System.out.print(list.get(i).getNode() + "  ||  ");
+		}
+		System.out.println();
 	}
 }
 
