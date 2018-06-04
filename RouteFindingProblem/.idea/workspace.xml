@@ -69,7 +69,7 @@
       <find>Sibiu</find>
       <find>Updated</find>
       <find>Craiova</find>
-      <find>Other parent</find>
+      <find />
       <find>other</find>
       <find>inter</find>
     </findStrings>
@@ -125,7 +125,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../8Puzzle" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunDashboard">

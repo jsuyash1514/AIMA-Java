@@ -3,10 +3,10 @@ import java.util.Collections;
 import java.util.List;
 
 
-/*	This program generates random 8Puzzle and solves it(if solvable) by partial Breadth-First Search algorithm.		*/
-/*	(Partial because it filters frontier at every state and remove nodes with too large heuristic).		*/
+/*	This program generates random 8Puzzle and solves it(if solvable) by Best-First Search algorithm.		*/
+/*	(It adds only child/children with minimum heuristic in frontier ).		*/
 
-/*	Computed solution may or may not be optimal.														*/
+/*	Computed solution may or may not be optimal.	*/
 
 
 class ProblemSolvingAgent {
@@ -67,7 +67,6 @@ class ProblemSolvingAgent {
 		frontier.add(state);
 		while (true){
 			expand(explored, frontier);
-			filter(frontier);
 		}
 		
 	}
@@ -83,26 +82,19 @@ class ProblemSolvingAgent {
 		}
 		List<Matrix> queue = new ArrayList<>();
 		queue = leaf.getChildren();
+		int min = queue.get(0).getHeuristic();
+		for (int i=0; i<queue.size(); i++){
+			if (queue.get(i).getHeuristic() <= min && !queue.get(i).existsIn(explored)){
+				min = queue.get(i).getHeuristic();
+			}
+		}
 		for (int i=0; i<queue.size(); i++){
 			if (queue.get(i).existsIn(explored) || queue.get(i).existsIn(frontier)){
 				continue;
 			}
+			else if (queue.get(i).getHeuristic() == min){
 			queue.get(i).setParent(leaf);
 			frontier.add(queue.get(i));
-			
-		}
-	}
-	
-	public static void filter(List<Matrix> frontier){
-		int min = frontier.get(0).getHeuristic();
-		for (int i=0; i<frontier.size(); i++){
-			if (frontier.get(i).getHeuristic() <= min){
-				min = frontier.get(i).getHeuristic();
-			}
-		}
-		for (int i=0; i<frontier.size(); i++){
-			if (frontier.get(i).getHeuristic() > min+1){
-				frontier.remove(i);
 			}
 		}
 	}
