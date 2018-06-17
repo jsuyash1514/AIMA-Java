@@ -37,16 +37,6 @@ class ProblemSolvingAgent {
 		state.print(g);
 		System.out.println("Initial Matrix");
 		
-		
-		if (!state.isSolvable()){
-			System.out.println("\n\nThis matrix is not solvable");
-			System.exit(0);
-		}
-		
-		
-		System.out.println("\n******************************\n");
-		System.out.println("Process initiated...");
-		
 		int k=0;
 		int[][] goalMatrix = new int[3][3];
 		for (int i=0;i<3;i++){
@@ -55,6 +45,20 @@ class ProblemSolvingAgent {
 				k++;
 			}
 		}
+		
+		if (!state.isSolvable()){
+			System.out.println("\n\nThis matrix is not solvable");
+			System.exit(0);
+		}
+		else {
+			goal.setMatrix(goalMatrix);
+		}
+		
+		
+		System.out.println("\n******************************\n");
+		System.out.println("Process initiated...");
+		
+		
 		goal.setMatrix(goalMatrix);
 		
 		leaf = state;
