@@ -25,8 +25,8 @@
       <file leaf-file-name="ProblemSolvingAgent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2595">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding>
                 <element signature="e#3157#3158#0" expanded="true" />
                 <element signature="e#3175#3176#0" expanded="true" />
@@ -69,7 +69,7 @@
       <find>Sibiu</find>
       <find>Updated</find>
       <find>Craiova</find>
-      <find />
+      <find>Other parent</find>
       <find>other</find>
       <find>inter</find>
     </findStrings>
@@ -218,7 +218,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3296" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3296" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3296" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
@@ -342,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2595">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding>
             <element signature="e#3157#3158#0" expanded="true" />
             <element signature="e#3175#3176#0" expanded="true" />
