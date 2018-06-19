@@ -11,7 +11,7 @@ public class ProblemSolvingAgent {
 	
 	public static void main(String[] args){
 		adjacencyMatrix.setMap();
-		initiate("Oradea","Iasi");
+		initiate("Arad","Iasi");
 		
 	}
 	
