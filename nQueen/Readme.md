@@ -1,5 +1,7 @@
 # nQueen Problem
 
+The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each other.
+
 ### Backtracking Algorithm
 The idea is to place queens one by one in different columns, starting from the leftmost column. When we place a queen in a column, we check for clashes with already placed queens. In the current column, if we find a row for which there is no clash, we move to next column. If we do not find any such row due to clashes then we move back (backtrack) to previous column and modify its configuration.
 
