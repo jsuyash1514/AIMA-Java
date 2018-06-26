@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="aima-java">
+    <CLASSES>
+      <root url="file://$USER_HOME$/aima-java" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/aima-java/aima-core/src/main/java" />
+      <root url="file://$USER_HOME$/aima-java/aima-core/src/test/java" />
+      <root url="file://$USER_HOME$/aima-java/aima-gui/src/main/java" />
+      <root url="file://$USER_HOME$/aima-java/aimax-osm/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
