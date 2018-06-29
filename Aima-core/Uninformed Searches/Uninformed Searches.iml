@@ -7,21 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="aima-java" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/aima-java" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/aima-java/aima-core/src/main/java" />
-          <root url="file://$USER_HOME$/aima-java/aima-core/src/test/java" />
-          <root url="file://$USER_HOME$/aima-java/aima-gui/src/main/java" />
-          <root url="file://$USER_HOME$/aima-java/aimax-osm/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>

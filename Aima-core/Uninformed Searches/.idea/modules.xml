@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BreadthFirstSearch.iml" filepath="$PROJECT_DIR$/BreadthFirstSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Uninformed Searches.iml" filepath="$PROJECT_DIR$/Uninformed Searches.iml" />
     </modules>
   </component>
 </project>

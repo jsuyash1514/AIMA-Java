@@ -6,7 +6,7 @@ import aima.core.search.uninformed.BreadthFirstSearch;
 
 import java.util.Queue;
 
-public class BFS {
+public class BreadthFirst {
 	static QueueFactory queueFactory = new QueueFactory();
 	static Queue<Node> frontier ;
 	
