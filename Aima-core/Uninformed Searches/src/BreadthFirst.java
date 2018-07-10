@@ -14,7 +14,7 @@ public class BreadthFirst {
 	
 	public static void main(String[] args){
 	
-		/*Method-1: Using GraphSearcBFS*/
+		/*Method-1: Using GraphSearchBFS*/
 		
 		Map romaniaMap = new SimplifiedRoadMapOfPartOfRomania();
 		Problem<String, MoveToAction> problem = new GeneralProblem<>(
