@@ -2,6 +2,8 @@ import aima.core.environment.map.*;
 import aima.core.search.framework.problem.*;
 import aima.core.search.uninformed.DepthLimitedSearch;
 
+import java.util.HashSet;
+
 
 public class DepthLimited {
 	public static void main(String[] args){
