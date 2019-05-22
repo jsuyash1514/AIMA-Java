@@ -16,7 +16,7 @@ public class AStar {
 	
 	public static void main(String[] args){
 		
-		EightPuzzleBoard board = new EightPuzzleBoard(new int[] { 7, 1, 8, 0, 4, 6, 2, 3, 5 });
+		EightPuzzleBoard board = new EightPuzzleBoard(new int[] { 1 ,7 ,4 ,3 ,0 ,2 ,6 ,8 ,5 });
 		Problem<EightPuzzleBoard, Action> problem = new GeneralProblem<>(board, EightPuzzleFunctions::getActions,
 				EightPuzzleFunctions::getResult,
 				GoalTest.isEqual(EightPuzzleFunctions.GOAL_STATE));

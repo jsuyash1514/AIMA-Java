@@ -24,10 +24,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="ProblemSolvingAgent.class" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.class">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-298">
+              <folding>
+                <element signature="e#0#1763#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="ProblemSolvingAgent.java" pinned="false" current-in-tab="true">
@@ -58,6 +64,7 @@
     <option name="height" value="692" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -70,6 +77,11 @@
             <path>
               <item name="nQueen" type="b2602c69:ProjectViewProjectNode" />
               <item name="nQueen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nQueen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nQueen" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nQueen" type="b2602c69:ProjectViewProjectNode" />
@@ -115,7 +127,9 @@
       <module name="nQueen" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
-    <configuration name="Unnamed" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
