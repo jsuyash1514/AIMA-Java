@@ -16,12 +16,12 @@ public class OnlineDFS {
 		extendableMap = new ExtendableMap();
 		extendableMap.addBidirectionalLink("1,1", "1,2", 1.0);
 		extendableMap.addBidirectionalLink("1,1", "2,1", 1.0);
-		extendableMap.addBidirectionalLink("2,1", "3,1", 1.0);
 		extendableMap.addBidirectionalLink("2,1", "2,2", 1.0);
 		extendableMap.addBidirectionalLink("3,1", "3,2", 1.0);
 		extendableMap.addBidirectionalLink("2,2", "2,3", 1.0);
 		extendableMap.addBidirectionalLink("3,2", "3,3", 1.0);
 		extendableMap.addBidirectionalLink("2,3", "1,3", 1.0);
+		extendableMap.addBidirectionalLink("2,1", "3,1", 1.0);
 		
 		envChange = new StringBuffer();
 		

@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9419d32-f2c4-4aaf-8526-67c1321adb5b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../8Puzzle/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../8Puzzle/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nQueen/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nQueen/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../8Puzzle/out/production/8Puzzle/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/../8Puzzle/out/production/8Puzzle/Matrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../8Puzzle/out/production/8Puzzle/ProblemSolvingAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../8Puzzle/out/production/8Puzzle/ProblemSolvingAgent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/AStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/AStar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/Eight_Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/Eight_Puzzle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/GreedyBestFirst.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/out/production/8Puzzle/GreedyBestFirst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/AStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/Eight_Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/Eight_Puzzle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/GreedyBestFirst.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/8Puzzle/src/GreedyBestFirst.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Aima-core/Uninformed Searches/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/Uninformed Searches/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aima-core/Uninformed Searches/out/production/Uninformed Searches/DepthLimited.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Aima-core/Uninformed Searches/out/production/Uninformed Searches/DepthLimited.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ErraticVacuumWorld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ErraticVacuumWorld/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ErraticVacuumWorld/out/production/ErraticVacuumWorld/ErraticVacuumWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ErraticVacuumWorld/out/production/ErraticVacuumWorld/ErraticVacuumWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ErraticVacuumWorld/out/production/ErraticVacuumWorld/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ErraticVacuumWorld/out/production/ErraticVacuumWorld/State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VacuumCleaner/out/production/VacuumCleaner/SimpleReflexAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../VacuumCleaner/out/production/VacuumCleaner/SimpleReflexAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nQueen/out/production/nQueen/ProblemSolvingAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../nQueen/out/production/nQueen/ProblemSolvingAgent.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +41,8 @@
       <file leaf-file-name="ProblemSolvingAgent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="182">
+              <caret line="287" column="24" selection-start-line="287" selection-start-column="24" selection-end-line="287" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -96,10 +102,12 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <hideEmptyPackages ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -121,17 +129,16 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -146,10 +153,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="ProblemSolvingAgent" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="ProblemSolvingAgent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="ProblemSolvingAgent" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
@@ -213,38 +219,59 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3296" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32833335" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3296" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32943144" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3296" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25378788" />
-      <window_info anchor="bottom" id="Educational.CheckDetails" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="0" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3296" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3296" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -344,8 +371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProblemSolvingAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state relative-caret-position="182">
+          <caret line="287" column="24" selection-start-line="287" selection-start-column="24" selection-end-line="287" selection-end-column="24" />
         </state>
       </provider>
     </entry>
